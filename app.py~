@@ -1,0 +1,96 @@
+
+from flask import Flask, render_template, request, redirect, url_for
+import random
+import db
+from werkzeug.utils import secure_filename
+import os
+from PIL import Image
+
+application = Flask(__name__)
+
+@application.route('/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    else:
+        if request.method == 'POST':
+            email = request.form['email']
+            password = request.form['password']
+            data =  db.consultadato('user', email)
+            if data == []:
+                return render_template('fail.html', mensaje="El Usuario no Existe")
+
+            if data[0][2] == email and data[0][3] == password:
+                username = data[0][1]
+                return redirect(url_for('index', user=username))
+            else:
+                return render_template('fail.html', mensaje='email o password incorrecto')
+
+
+
+@application.route('/<user>', methods=['GET'])
+def index(user):
+    data = db.consultadato('user', user)
+    if data == []:
+        return render_template('fail.html', mensaje="El Usuario no Existe")
+    else:
+        articulos = db.consultaart(data[0][0])
+        ele = db.tresillo(articulos, 3)
+        tam = len(ele)
+        if articulos == []:
+            return render_template('index.html', pag='No hay articulos', user=user, ide=data[0][0], slogan=data[0][4])
+            print(articulos)
+        return render_template('index.html', pag=ele, user=user, ide=data[0][0], slogan=data[0][4], tam=tam)
+
+
+
+
+
+@application.route('/fail', methods=['GET'])
+def fail():
+    return render_template('fail.html', mensaje=mensaje)
+
+
+
+
+@application.route('/registro', methods=['GET', 'POST'])
+def registro():
+    if request.method == 'POST':
+        dat = []
+        username = request.form['username']
+        dat.append(username)
+        email = request.form['email']
+        dat.append(email)
+        password = request.form['password']
+        repassword = request.form['repassword']
+        if password != repassword:
+            return render_template('fail.html', mensaje="password no concuerda")
+        else:
+            dat.append(password)
+        slogan = request.form['slogan']
+        dat.append(slogan)
+        listadat = db.consulta('user')
+        ultimo = len(listadat)-1
+        os.mkdir('static/img/{}'.format(listadat[ultimo][0]+1))
+        logo = request.files['file']
+        logoname = secure_filename('{}.png'.format(username))
+        application.config['UPLOAD_FOLDER'] = './static/img/{}'.format(listadat[ultimo][0]+1)
+        logo.save(os.path.join(application.config['UPLOAD_FOLDER'], logoname))
+        try:
+            db.nuevo(dat)
+            return redirect(url_for('login'))
+        except:
+            return render_template('fail.html', mensaje="No se pude registrar por ")
+    else:
+        return render_template('registro.html')
+
+
+
+
+@application.route('/pruebas', methods=['GET'])
+def pru():
+    return render_template('pruebas.html')
+
+
+
+application.run(debug=1, host='0.0.0.0', port=8000)

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+				<link rel="icon" href="{{url_for('static', filename='img/vshoplogo.jpg')}}" sizes="32x32">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/ped.css')}}">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/bulma/css/bulma.css')}}">
+
+				<script src="{{url_for('static', filename='js/java.js')}}"></script>
+				<title></title>
+		</head>
+		<body style="margin:0; height:100vh; display:flex; flex-direction:column;background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);">
+
+				<div class="container">
+
+						<div class="box" style="margin-top:15%; width:60vh; height:65vh; background: rgba(0,0,0,0)">
+
+								<figure class="image is-128x128" href="" style="margin:1vh auto">
+										<img class="is-rounded" src="{{url_for('static', filename='img/vshoplogo.jpg')}}" title="VShop es una tienda virtual para ventas simples">
+								</figure>
+
+								<form action="{{url_for('login')}}" method="POST">
+										<div class="field">
+												<div class="control">
+												<input class="input transparente" name="email" type="email" placeholder="Email" style="border-color:transparent; border-bottom:1px solid red; background-color:rgba(0,0,0,0)">
+												</div>
+										</div>
+
+										<div class="field">
+										
+												<input class="input transparente" name="password" type="password" placeholder="Password"  style="border-color:transparent; border-bottom:1px solid red; background-color:rgba(0,0,0,0)">
+										</div>
+
+										<div class="field">
+												<p class="control">
+												<input class="button is-link input" type="submit" value="Login">
+												</input>
+												</p>
+										</div>
+
+										<div class="field is-grouped is-expanded">
+												<p class="control">
+												<a href="{{url_for('registro')}}">Registrarse</a>
+												</p>
+
+												<p class="control">
+												<a href='#'>Olvido su Contraseña</a>
+												</p>
+										</div>
+
+								</form>
+
+
+
+						</div>
+
+				</div>
+
+		</body>
+</html>

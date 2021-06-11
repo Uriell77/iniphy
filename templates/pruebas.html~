@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+				<link rel="icon" href="{{url_for('static', filename='img/vshoplogo.jpg')}}" sizes="32x32">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/bulma/css/bulma.css')}}"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <title></title>
+</head>
+<body class="m-5 pl-5">
+		<div class="container p-5 pl-5">
+        <div class="box wave ml-5" style="height:760px">
+				
+						<div class="columns">
+								<div class="column">
+										<div class="box mb-0 mt-0">
+											<figure class="image is-128x128">
+													<img src="{{url_for('static', filename='img/cumple1/1cumple.jpg')}}">
+											</figure>
+										</div>
+										<div class="box mb-0 mt-0">
+	<figure class="image is-128x128">
+													<img src="{{url_for('static', filename='img/cumple1/2cumple.jpg')}}">
+											</figure>
+
+										</div>
+										<div class="box mb-0 mt-0">
+	<figure class="image is-128x128">
+													<img src="{{url_for('static', filename='img/cumple1/3cumple.jpg')}}">
+											</figure>
+
+										</div>
+								</div>
+								<div class="column">
+										<div class="box mb-0 mt-0" style="height:168px">
+												<p align="center"><font class="number">12</font></p>
+												<p align="center" style="font-size:20px"><font style="font-family: Pacifico;">Magicos Meses</font></p>
+										</div>
+
+<div class="box mb-0 mt-0" style="height:168px">
+												<p align="center"><font class="number">365</font></p>
+												<p align="center" style="font-size:20px"><font style="font-family: Pacifico">Encantadores Dias</font></p>
+										</div>
+
+<div class="box mb-0 mt-0" style="height:168px">
+												<p align="center"><font class="number">8760</font></p>
+												<p align="center" style="font-size:20px"><font style="font-family: Pacifico">Adorables Horas</font></p>
+										</div>
+
+								</div>
+						</div>
+
+
+						<div class="columns is-gapless">
+						        <div class="column">
+						                <div class="box" style="background: linear-gradient(to right, #ee9ca7,#ffdde1); border-top:solid; border-color:#ee9ca7">
+
+												<div class="columns">
+												        <div class="column">
+																<p align="center" style="font-size:160px; color:#ff33c8">
+																<font class="" style="font-family: 'Pacifico', cursive; position:absolute; left:20px; top:390px">1</font>
+																</p>
+																<p align="center" style="font-size:20px">
+																<font style="font-family:Pacifico">Año Perfecto</font>
+																</p>
+
+													<figure class="image is-128x128" style="position:absolute; left:20px; top:600px; transform:rotate(-10deg)">
+														<img src="{{url_for('static', filename='img/cumple1/corona.png')}}" style="background-color:rgba(0,0,0,0);">
+													</figure>
+
+
+														</div>
+												        <div class="column">
+
+															<p align="center" style="font-size:20px"><font style="font-family: Pacifico; color:#ff33c8">Luisiana Ayelet</font></p>
+															<p class="block" align="right" style="width:250px"><font>Queremos celebrar contigo el primer año de nuestra Reina <br>Dia:16/06/2021<br>Lugar: Casa de Luisiana<br>Hora: 4:30 Pm</font></p>
+
+
+														</div>
+												</div>
+										</div>
+						        </div>
+						</div>
+				
+		</div>
+		</div>
+</body>
+</html>

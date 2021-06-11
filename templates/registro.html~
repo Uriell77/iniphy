@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+				<link rel="icon" href="{{url_for('static', filename='img/vshoplogo.jpg')}}" sizes="32x32">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/ped.css')}}">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/bulma/css/bulma.css')}}">
+				<link rel="preconnect" href="https://fonts.gstatic.com">
+				<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+				<title></title>
+		</head>
+		<body class="is-fullwidth" style="margin:0; height:70rem; display:flex; flex-direction:column;background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);">
+
+				<div class="container">
+
+
+						<div class="box" style="margin-top:5%; width:80vh; height:50rem; background: rgba(0,0,0,0)">
+
+								<figure class="image is-64x64" href="" style="margin:1vh auto">
+										<img class="is-rounded" src="{{url_for('static', filename='img/vshoplogo.jpg')}}" title="VShop es una tienda virtual para ventas simples">
+								</figure>
+
+
+								<!-- formulario -->
+
+								<form action="{{url_for('registro')}}" method="POST" enctype="multipart/form-data">
+
+										<div class="section" style="border:solid; border-width:1px; border-color:#dedede"><div class="mb-2 has-text-weight-semibold">Datos de la Empresa</div><br>
+
+												<div class="field">
+														<label class="label" title="Es el nombre del Negocio">Nombre</label>
+														<div class="control has-icons-left">
+																<input class="input" type="text" placeholder="Nombre del Negocio" name="username">
+																<span class="icon is-small is-left">
+																		<i class="material-icons">store</i>
+																</span>
+														</div>
+												</div>
+
+
+												<div class="field">
+														<label class="label">Email</label>
+														<div class="control has-icons-left has-icons-right">
+																<input class="input" type="email" placeholder="Email input" value="" name="email">
+																<span class="icon is-small is-left">
+																		<i class="fas fa-envelope material-icons">mail</i>
+																</span>
+																<span class="icon is-small is-right">
+																		<i class="fas fa-exclamation-triangle"></i>
+																</span>
+														</div>	
+												</div>
+
+
+												<div class="field">
+														<label class="label">Password</label>
+														<div class="control has-icons-left has-icons-right">
+																<input class="input" type="password" placeholder="Passsword input" value="" name="password">
+																<span class="icon is-small is-left">
+																		<i class="fas fa-envelope material-icons">lock</i>
+																</span>
+																<span class="icon is-small is-right">
+																		<i class="fas fa-exclamation-triangle"></i>
+																</span>
+														</div>	
+												</div>
+
+
+
+												<div class="field">
+														<label class="label">Re-Password</label>
+														<div class="control has-icons-left has-icons-right">
+																<input class="input" type="password" placeholder="Repeat Passsword input" value="" name="repassword">
+																<span class="icon is-small is-left">
+																		<i class="fas fa-envelope material-icons">lock</i>
+																</span>
+																<span class="icon is-small is-right">
+																		<i class="fas fa-exclamation-triangle"></i>
+																</span>
+														</div>	
+												</div>
+
+
+
+												<div class="field">
+														<label class="label">Slogan</label>
+														<div class="control has-icons-left has-icons-right">
+																<input class="input" type="text" placeholder="Slogan de la Empresa" value="" name="slogan">
+																<span class="icon is-small is-left">
+																		<i class="fas fa-envelope material-icons">speaker_notes</i>
+																</span>
+																<span class="icon is-small is-right">
+																		<i class="fas fa-exclamation-triangle"></i>
+																</span>
+														</div>	
+												</div>
+
+
+												<div class="field">
+														<label class="label"> Logo de Empresa</label>
+														<div class="control">
+																<div class="file is-info has-name" id="logofile">
+																		<label class="file-label">
+																				<input class="file-input" type="file" name="file">
+																				<span class="file-cta">
+																						<span class="file-icon">
+																								<i class="fas fa-upload"></i>
+																						</span>
+																						<span class="file-label">
+																								Logo…
+																						</span>
+																				</span>
+																				<span class="file-name">
+																						Screen Shot 2017-07-29 at 15.54.25.png
+																				</span>
+																		</label>
+																</div>
+														</div>
+												</div>
+
+
+
+										</div>
+
+
+										
+
+
+										<div class="field is-grouped is-grouped-centered">
+												<div class="control">
+														<button class="button is-link">Submit</button>
+												</div>
+												<div class="control">
+														<a class="button is-link is-light" href="/registro">Cancel</a>
+												</div>
+										</div>
+
+
+								</form>
+								<!--fin del formulario  -->
+
+
+
+						</div>
+						</div>
+						<!-- footer-->
+
+						<footer class="footer" style="background-color:#174287; color:white">
+								<div class="content has-text-centered">
+										<p>
+										<strong>Vshop</strong> by <a href="https://www.facebook.com/hermoso77/" target="blanks" style="color:red">GP System</a>. The source code is licensed
+										<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:red">CC</a>. The website content
+										is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"style="color:red">CC BY NC SA 4.0</a>.
+										</p>
+								</div>
+						</footer>
+						<!--endfooter-->
+
+
+				<script>
+  const fileInput = document.querySelector('#logofile input[type=file]');
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#logofile .file-name');
+      fileName.textContent = fileInput.files[0].name;
+    }
+  }
+</script>
+		</body>
+
+
+</html>

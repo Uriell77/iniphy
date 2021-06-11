@@ -1,0 +1,75 @@
+{% block artic %}
+
+<div class="container">
+
+
+		<!-- area de articulos-->
+		{% if pag is string %}
+		<div class="columns is-gapless">
+				<div class="column"></div>
+				<div class="column is-full">
+						<div class="box" style="color:#999999"><p align="center">{{pag}}</p></div>
+				</div>
+				<div class="column"></div>
+		</div>
+		{% else %}
+
+
+		<!--cuadricula de imagenes-->
+
+		{% for i in pag%}
+		<div class="columns">
+				{% if i|length == 2 %}
+				{% set ls = [('.')] %}
+				{% set l = [] %}
+				{% set l = i.extend(ls) %}
+				{% endif %}
+
+				{% if i|length == 1 %}
+				{% set ls = [('.'), ('.')] %}
+				{% set l = [] %}
+				{% set l = i.extend(ls) %}
+				{% endif %}
+
+				{% for j in i %}
+				<div class="column">
+						<div class="box" id="articulos">
+								<div class="media">
+										<figure class="image is-256x256" href="" style="margin-left:auto; margin-right:auto">
+												<img src="{{url_for('static', filename='img/{0}/{0}-{1}.jpeg'.format(j[0], j[1]))}}" title="{{j[1]}},{{j[5]}}" style=""></img>
+										</figure>
+								</div>
+								
+								{% set titles = ['Nombre: ', 'Descripcion: ', 'Precio: ']%}
+								{% for k in j[1:4] %}
+								{% if k is float %}
+								{% set k = '{}{}'.format(k,'$') %}
+								{% endif %}
+								
+								<span class="has-text-weight-semibold">{{k.capitalize()}}&nbsp&nbsp</span><br>
+								{% endfor %}
+										<button class="button is-hidden-mobile is-success is-hovered is-fullwidth"value="Agregar">Agregar</button>
+
+
+
+						</div>
+				</div>
+				{% endfor %}
+		</div>
+		{% endfor %}
+
+
+
+
+		{% endif %}
+
+
+
+		<!--fin de area de articulos-->
+
+
+
+
+
+</div>
+{% endblock %}

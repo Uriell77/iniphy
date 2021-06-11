@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+				<link rel="icon" href="{{url_for('static', filename='img/vshoplogo.jpg')}}" sizes="32x32">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/ped.css')}}">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/bulma/css/bulma.css')}}">
+
+				<script src="{{url_for('static', filename='js/java.js')}}"></script>
+				<title></title>
+		</head>
+		<body style="margin:0; height:100vh; display:flex; flex-direction:column;background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%);">
+
+				<div class="container">
+
+						<div class="box" style="margin-top:15%; width:60vh; height:65vh; background: rgba(0,0,0,0)">
+
+								<figure class="image is-128x128" href="" style="margin:1vh auto">
+										<img class="is-rounded" src="{{url_for('static', filename='img/vshoplogo.jpg')}}" title="VShop es una tienda virtual para ventas simples">
+								</figure>
+
+
+												<div class="box has-background-warning">
+														<div class="title">
+																{{mensaje}}
+														</div>
+												</div>
+												<div class="columns">
+														<div class="column">
+												<p class="control">
+												<a href="#">Registrarse</a>
+												</p>
+												</div>
+
+												<div class="column">
+												<p class="control">
+												<a href='#'>Olvido su Contraseña</a>
+												</p>
+												</div>
+												</div>
+										
+
+
+
+						</div>
+
+				</div>
+
+		</body>
+</html>

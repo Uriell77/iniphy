@@ -1,0 +1,14 @@
+
+.transparente{
+		background: transparent !important;
+		border-color:transparent;
+		border-bottom:1px solid red;
+		background-color:rgba(0,0,0,0); !important;
+
+}
+.transparente:focus{
+		border-color:transparent !important;
+		border-bottom:1px solid red !important;
+		background-color:rgba(0,0,0,0) !important;
+		background: transparent !important;
+}

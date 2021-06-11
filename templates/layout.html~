@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+				<link rel="icon" href="{{url_for('static', filename='img/vshoplogo.jpg')}}" sizes="32x32">
+				<link rel="stylesheet" href="{{url_for('static', filename='css/css/bulma/css/bulma.css')}}"/>
+				<title>{{user.capitalize()}}</title>
+		</head>
+		<body style="margin:0; height:100vh; display:flex; flex-direction:column">
+
+				<!--navbar-->
+				
+
+				<nav class="navbar is-link" role="navigation" aria-label="main navigation">
+						<div class="navbar-brand">
+
+								<figure class="image is-64x64" href="">
+														<img class="is-rounded" src="{{url_for('static', filename='img/vshoplogo2.jpg')}}" title="VShop es una tienda virtual para ventas simples">
+								</figure>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+			<!-- <a class="navbar-item" title="es un home">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+      <a class="navbar-item">
+          More
+        </a>
+			-->
+
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+         
+		<div class="dropdown is-right" id="desplegable">
+				<div class="dropdown-trigger">
+          <a class="button is-light mr-5 is-fullwidth" aria-haspopup="true" aria-controls="dropdown-menu">
+				  {{user.capitalize()}}
+		  </a>
+		  </div>
+			<div class="dropdown-menu" id="dropdown-menu" role="menu">
+    			<div class="dropdown-content">
+      				<a href="#" class="dropdown-item">
+        				Edicion Tema
+      				</a>
+					<a href="#" class="dropdown-item">
+        				Agregar Articulos
+      				</a>
+					<a href="#" class="dropdown-item">
+        				Contabilidad
+      				</a>
+
+				</div>
+			</div>
+
+
+		  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+				<!--endnavbar-->
+
+				
+				{% block bodyd %}
+				{% endblock %}
+				
+
+		<!-- footer-->
+
+<footer class="footer" style="background-color:#174287; color:white">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Vshop</strong> by <a href="https://www.facebook.com/hermoso77/" target="blanks" style="color:red">GP System</a>. The source code is licensed
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color:red">CC</a>. The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"style="color:red">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+		<!--endfooter-->
+
+		</body>
+</html>

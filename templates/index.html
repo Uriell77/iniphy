@@ -1,0 +1,48 @@
+{% extends 'layout.html'%}
+
+
+{% block bodyd %}
+<div class="section pt-0 pl-0 pr-0">
+		<div class="container" style="background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); border-radius:25px">
+				<div class="columns is-gapless">
+						<div class="column"></div>
+
+						<div class="column mt-0 mb-0" style="">
+								<figure class="image is-128x128 is-fullwidth" href="" style="margin-left:auto; margin-right:auto">
+										{% if ' ' in user %}
+										{% set logonom = user.replace(' ', '_')%}
+										{% else %}
+										{% set logonom = user %}
+										{% endif %}
+									
+
+										<img class="is-rounded" src="{{url_for('static', filename='img/{0}/{1}.png'.format(ide, logonom))}}" title="{{user.capitalize()}}">
+								</figure>
+						</div>
+						
+						<div class="column"></div>
+				</div>
+				<div class="columns is-gapless">
+						<div class="column"></div>
+						<div class="column is-full">
+								<div class="block pb-0 pt-0" style="background: rgba(0,0,0,0)">
+										<p class="title pb-0" align="center">{{user.capitalize()}}</p>
+										<p class="is-size-4 pt-0 pb-0" align="center">{{slogan.capitalize()}}</p>
+								</div>
+						</div>
+						<div class="column"></div>
+				</div>
+		</div>
+
+		{% include 'artic.html' %}
+		{% block artic %}
+		{% endblock%}
+
+</div>
+
+<script src="{{url_for('static', filename='js/java.js')}}"></script>
+<script>
+		hiden();
+</script>
+
+{% endblock %}

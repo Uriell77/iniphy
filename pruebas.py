@@ -1,0 +1,7 @@
+import db
+
+a = ['nuevatienda', 'tienda@gmail.com', '717171', 'todo nuevo para ti']
+
+a = db.consulta('user')
+b = len(a)-1
+print(a[b][0])
