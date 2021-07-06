@@ -3,12 +3,15 @@
 
 {% block bodyd %}
 <div class="section pt-0 pl-0 pr-0">
-		<div class="container" style="background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); border-radius:25px">
-				<div class="columns is-gapless">
-						<div class="column"></div>
+		<div class="container pl-0 pr-0" style="background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); border-radius:10px">
 
-						<div class="column mt-0 mb-0" style="">
-								<figure class="image is-128x128 is-fullwidth" href="" style="margin-left:auto; margin-right:auto">
+				<div class="{{editlogo}} has-text-right" style="height:0px;"><div class='button pb-0 pt-0' id="bot-edit-logo">Editar</div></div>
+
+				<div class="columns is-gapless mt-0 mb-0 pt-0 pb-0 ml-0 mr-0 pl-0 pr-0">
+						<div class="column pt-0 pb-0 mt-0 mb-0"></div>
+
+						<div class="column mt-3 mb-0 pt-0 pb-0" style="">
+								<figure class="image is-128x128 is-fullwidth pt-0 pb-0 mt-0 mb-0" href="" style="margin-left:auto; margin-right:auto">
 										{% if ' ' in user %}
 										{% set logonom = user.replace(' ', '_')%}
 										{% else %}
@@ -16,21 +19,21 @@
 										{% endif %}
 									
 
-										<img class="is-rounded" src="{{url_for('static', filename='img/{0}/{1}.png'.format(ide, logonom))}}" title="{{user.capitalize()}}">
+										<img class="is-rounded pb-0 pt-0 mt-0 mb-0" src="{{url_for('static', filename='img/{0}/{1}.png'.format(ide, logonom))}}" title="{{user.capitalize()}}">
 								</figure>
 						</div>
 						
-						<div class="column"></div>
+						<div class="column pb-0 pt-0 mt-0 mb-0"></div>
 				</div>
-				<div class="columns is-gapless">
-						<div class="column"></div>
-						<div class="column is-full">
+				<div class="columns is-gapless mt-0 mb-0">
+						<div class="column pb-0 pt-0"></div>
+						<div class="column is-full pb-0 pt-0">
 								<div class="block pb-0 pt-0" style="background: rgba(0,0,0,0)">
-										<p class="title pb-0" align="center">{{user.capitalize()}}</p>
-										<p class="is-size-4 pt-0 pb-0" align="center">{{slogan.capitalize()}}</p>
+										<p class="title pb-0 pt-0 mt-0 mb-0" align="center">{{user.capitalize()}}</p>
+										<p class="is-size-4 pt-0 pb-0 mt-0 mb-0" align="center">{{slogan.capitalize()}}</p>
 								</div>
 						</div>
-						<div class="column"></div>
+						<div class="column pb-0 pt-0"></div>
 				</div>
 		</div>
 

@@ -27,7 +27,6 @@ def login():
                 return render_template('fail.html', mensaje='email o password incorrecto')
 
 
-
 @application.route('/<user>', methods=['GET'])
 def index(user):
     data = db.consultadato('user', user)
@@ -37,10 +36,24 @@ def index(user):
         articulos = db.consultaart(data[0][0])
         ele = db.tresillo(articulos, 3)
         tam = len(ele)
+    
         if articulos == []:
-            return render_template('index.html', pag='No hay articulos', user=user, ide=data[0][0], slogan=data[0][4])
-            print(articulos)
-        return render_template('index.html', pag=ele, user=user, ide=data[0][0], slogan=data[0][4], tam=tam)
+            return render_template('index.html', pag='No hay articulos', user=user, ide=data[0][0], slogan=data[0][4], divisa=data[0][5], bedit='Editar', direccion='edit', botdiv='section', editlogo='is-hidden', idbotdiv='')
+            print(data)
+        return render_template('index.html', pag=ele, user=user, ide=data[0][0], slogan=data[0][4], tam=tam, divisa=data[0][5], boton='Agregar a Compra', bedit='Editar', direccion='edit', botdiv='section', editlogo='is-hidden', idbotdiv='')
+
+
+
+@application.route('/edit/<user>', methods=['GET', 'POST'])
+def edit(user):
+ data = db.consultadato('user', user)
+ articulos = db.consultaart(data[0][0])
+ ele = db.tresillo(articulos, 3)
+ tam = len(ele)
+ if articulos == []:
+     return render_template('index.html', pag='No hay articulos', user=user, ide=data[0][0], slogan=data[0][4], divisa=data[0][5], boton='Editar', bedit='Finalizar Edicion', direccion='index', botdiv='button', editlogo='', idbotdiv='bot-edit-div')
+ else:
+     return render_template('index.html', pag=ele, user=user, ide=data[0][0], slogan=data[0][4], tam=tam, divisa=data[0][5], boton='Editar', bedit='Finalizar Edicion', direccion='index', botdiv='button', editlogo='', idbotdiv='bot-edit-div')
 
 
 

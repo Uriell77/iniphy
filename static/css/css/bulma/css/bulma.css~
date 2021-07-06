@@ -11660,6 +11660,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .number{
 		font-family: 'Permanent Marker', cursive;
 		font-size: 50px;
-		color: gold;
+		color: #FF33C8;
 
 }

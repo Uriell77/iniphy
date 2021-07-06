@@ -2,6 +2,10 @@
 
 <div class="container">
 
+	<div class="{{editlogo}} has-text-right" style="height:0px; width:80%"><div class='button is-rounded pb-0 pt-0' id="bot-edit-logo" style="position:absolute; z-index:3; height:80px">Editar</div></div>
+
+
+
 
 		<!-- area de articulos-->
 		{% if pag is string %}
@@ -39,16 +43,28 @@
 												<img src="{{url_for('static', filename='img/{0}/{0}-{1}.jpeg'.format(j[0], j[1]))}}" title="{{j[1]}},{{j[5]}}" style=""></img>
 										</figure>
 								</div>
-								
-								{% set titles = ['Nombre: ', 'Descripcion: ', 'Precio: ']%}
-								{% for k in j[1:4] %}
-								{% if k is float %}
-								{% set k = '{}{}'.format(k,'$') %}
-								{% endif %}
-								
-								<span class="has-text-weight-semibold">{{k.capitalize()}}&nbsp&nbsp</span><br>
-								{% endfor %}
-										<button class="button is-hidden-mobile is-success is-hovered is-fullwidth"value="Agregar">Agregar</button>
+								<div class="columns is-gapless is-multiline is-mobile">
+										<div class="column">
+												{% set titles = ['Nombre: ', 'Descripcion: ', 'Precio: ']%}
+												{% for k in j[1:4] %}
+												{% if k is float %}
+												{% set k = '{}{}'.format('$',k) %}
+												{% endif %}
+
+												<span class="has-text-weight-semibold has-text-left">{{k.capitalize()}}</span><br>
+												{% endfor %}
+										</div>
+
+										<!--en prueba -->
+										{% if j is string %}
+										{% else %}
+										{% set b = (j[3]*divisa)|round(2) %}
+										{% set g = '{:,}'.format(b)|replace(',','¬')|replace('.', ',')|replace('¬','.') %}
+										<div class="column"><span class="has-text-weight-semibold"><br><br>Bs: {{g}}</span></div>
+										{% endif %}
+
+								</div>
+								<button class="button is-hidden-mobile is-success is-hovered is-fullwidth"value="Agregar">{{boton}}</button>
 
 
 

@@ -5,6 +5,9 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 				<link rel="icon" href="{{url_for('static', filename='img/vshoplogo.jpg')}}" sizes="32x32">
 				<link rel="stylesheet" href="{{url_for('static', filename='css/css/bulma/css/bulma.css')}}"/>
+					<link rel="preconnect" href="https://fonts.gstatic.com">
+				<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 				<title>{{user.capitalize()}}</title>
 		</head>
 		<body style="margin:0; height:100vh; display:flex; flex-direction:column">
@@ -12,7 +15,7 @@
 				<!--navbar-->
 				
 
-				<nav class="navbar is-link" role="navigation" aria-label="main navigation">
+				<nav class="navbar is-link" role="navigation" aria-label="main navigation" style="max-height:3px">
 						<div class="navbar-brand">
 
 								<figure class="image is-64x64" href="">
@@ -46,8 +49,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-         
-		<div class="dropdown is-right" id="desplegable">
+				{%if pag is string %}
+				{% set g = divisa %}
+				{% else %}
+				{% set b = divisa|round(2)%}
+				{% set g = '{:,}'.format(b)|replace(',', '¬')|replace('.', ',')|replace('¬', '.') %}
+				{% endif %}
+				<div class="{{botdiv}} has-text-weight-semibold" id="{{idbotdiv}}">	<span class="material-icons pb-0"> local_atm </span><span>{{g}}</span></div>
+		<div class="dropdown" id="desplegable">
 				<div class="dropdown-trigger">
           <a class="button is-light mr-5 is-fullwidth" aria-haspopup="true" aria-controls="dropdown-menu">
 				  {{user.capitalize()}}
@@ -55,8 +64,8 @@
 		  </div>
 			<div class="dropdown-menu" id="dropdown-menu" role="menu">
     			<div class="dropdown-content">
-      				<a href="#" class="dropdown-item">
-        				Edicion Tema
+						<a href="{{url_for(direccion, user=user)}}" class="dropdown-item">
+								{{bedit}}
       				</a>
 					<a href="#" class="dropdown-item">
         				Agregar Articulos
@@ -80,9 +89,45 @@
 </nav>
 
 				<!--endnavbar-->
+				
+				<!-- modal  -->
+				<div class="container is-clipped">
+						<div class="modal" id="modal1">
+								<div class="modal-background" id="modalback"></div>
+								<div class="modal-card">
+										<header class="modal-card-head">
+												<p class="modal-card-title" id="modtitle">Recargas</p>
+												<button class="delete" id="del" aria-label="close"></button>
+										</header>
+										<section class="modal-card-body">
+												<!-- Content ... -->
 
+												
+														<form class="form" style="align:center" id="rec" method="GET">
+																<div class="block">
+
+																		<div><label class="label" for="">Valor de Divisa:<br>
+																						<input class="input is-primary" type="text" name="numero"></label></div>
+
+																		<input class="input is-primary" type="text" id="empresa" name="empresa" style="display: none"></input>
+
+
+																</div>
+														</form>
+												
+										</section>
+										<div class="modal-card-foot">
+												<input class="button is-success" type="submit" value="Definir"></input>
+												<input class="button" id="cancel" type="submit" value="Cancelar"></input>
+										</div>
+
+								</div>	
+						</div>
+				</div>
+				<!-- fin del modal -->
 				
 				{% block bodyd %}
+
 				{% endblock %}
 				
 

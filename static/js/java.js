@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
+*/
 
 //Botones de Cuentas
 document.addEventListener('DOMContentLoaded', () => {
-    var boton1 = document.getElementById('Netflix');
+    var boton1 = document.getElementById('bot-edit-div');
     var boton2 = document.getElementById('Disney+');
     var boton3 = document.getElementById('Amazon Prime');
     var ventana = document.getElementById('modal1');
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var empresa = document.getElementById('empresa')
     boton1.onclick = function() {
         ventana.classList.toggle('is-active');
-        title.innerHTML = "Cuentas Netflix";
-        empresa.value = "Netflix";
+        title.innerHTML = "Edicion de Divisa";
+        empresa.value = "divisa";
 
 
     };
@@ -90,13 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-*/
 
 
-/*
+
 //Funcionalidad del Modal
 document.addEventListener('DOMContentLoaded', () => {
-    var boton = document.getElementById('boton');
+    var boton = document.getElementById('bot-edit-logo');
     var ventana = document.getElementById('modal1');
     var close = document.getElementById('del');
     var back = document.getElementById('modalback');
@@ -116,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-*/
 
 
 //Desplegable del navbar
